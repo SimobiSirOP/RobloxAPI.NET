@@ -2,24 +2,23 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <LangVersion>9</LangVersion>
         <LangVersion>latest</LangVersion>
         <EnableNETAnalyzers>True</EnableNETAnalyzers>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
         <Nullable>enable</Nullable>
-        <PackageId>RobloxCloud.Client</PackageId>
-        <Version>0.0.4-alpha1</Version>
+        <PackageId>Roblox.API.NET</PackageId>
+        <Version>0.1.0</Version>
         <Title>A roblox client that accesses Cloud API</Title>
         <Authors>SimobiSirOP</Authors>
         <Copyright>Copyright © SimobiSirOP 2026</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageProjectUrl>https://github.com/SimobiSirOP/RobloxCloud.Client</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/SimobiSirOP/Roblox.API.NET</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://github.com/SimobiSirOP/RobloxCloud.Client.git</RepositoryUrl>
+        <RepositoryUrl>https://github.com/SimobiSirOP/Roblox.API.NET.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <Description>A async API Wrapper to access Roblox Cloud API</Description>
-        <PackageTags>roblox;api;server</PackageTags>
+        <PackageTags>roblox;api;wrapper;server;roblox_cloud;dotnet;c#;webapi</PackageTags>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <AssemblyName>RobloxCloudApi</AssemblyName>
         <RootNamespace>RobloxCloudApi</RootNamespace>
