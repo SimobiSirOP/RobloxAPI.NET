@@ -7,15 +7,15 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
         <Nullable>enable</Nullable>
-        <PackageId>Roblox.API.NET</PackageId>
+        <PackageId>RobloxAPI.NET</PackageId>
         <Version>0.1.0</Version>
         <Title>A roblox client that accesses Cloud API</Title>
         <Authors>SimobiSirOP</Authors>
         <Copyright>Copyright © SimobiSirOP 2026</Copyright>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageProjectUrl>https://github.com/SimobiSirOP/Roblox.API.NET</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/SimobiSirOP/RobloxAPI.NET</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryUrl>https://github.com/SimobiSirOP/Roblox.API.NET.git</RepositoryUrl>
+        <RepositoryUrl>https://github.com/SimobiSirOP/RobloxAPI.NET.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <Description>A async API Wrapper to access Roblox Cloud API</Description>
         <PackageTags>roblox;api;wrapper;server;roblox_cloud;dotnet;c#;webapi</PackageTags>
