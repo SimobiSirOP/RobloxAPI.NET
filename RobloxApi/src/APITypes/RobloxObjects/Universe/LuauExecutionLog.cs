@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.APIRequests.Abstractions;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Universe;
 
 public class LuauExecutionLog : ApiBaseData
 {

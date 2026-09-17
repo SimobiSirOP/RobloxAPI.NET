@@ -2,7 +2,7 @@
 using RobloxCloudApi.Helpers.JsonConverters;
 using RobloxCloudApi.Helpers.JsonConverters.RequestV2Helpers;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Universe;
 
 public class RobloxUniverse 
 {

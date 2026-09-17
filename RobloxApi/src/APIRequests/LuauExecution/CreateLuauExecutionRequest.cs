@@ -1,8 +1,10 @@
 ﻿using System.Text.Json.Serialization;
 using JetBrains.Annotations;
-using RobloxCloudApi.APIRequests.RequestHelpers;
+using RobloxCloudApi.APIRequests.Abstractions;
 using RobloxCloudApi.APITypes.Operations;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
+using RobloxCloudApi.APITypes.RobloxObjects.Universe;
+using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.LuauExecution;
 

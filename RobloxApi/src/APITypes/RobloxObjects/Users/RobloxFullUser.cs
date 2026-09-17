@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.Helpers.JsonConverters;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Users;
 
 public class RobloxFullUser : RobloxUser
 {

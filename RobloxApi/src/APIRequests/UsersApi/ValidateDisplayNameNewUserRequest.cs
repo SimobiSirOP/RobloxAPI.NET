@@ -1,6 +1,7 @@
-﻿using RobloxCloudApi.APIRequests.RequestHelpers;
+﻿using RobloxCloudApi.APIRequests.Abstractions;
+using RobloxCloudApi.APITypes.TypeBases;
 
-namespace RobloxCloudApi.APIRequests.UsersApi.Requests;
+namespace RobloxCloudApi.APIRequests.UsersApi;
 
 [NoAuth]
 [UserCookieAuth]

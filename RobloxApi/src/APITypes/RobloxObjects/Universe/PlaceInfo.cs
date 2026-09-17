@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Universe;
 
 public class PlaceInfo
 {

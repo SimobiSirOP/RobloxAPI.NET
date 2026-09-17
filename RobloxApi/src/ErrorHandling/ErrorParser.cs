@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System.Text.Json.Serialization;
-using RobloxCloudApi.APIRequests.RequestHelpers;
 using RobloxCloudApi.APITypes;
+using RobloxCloudApi.APITypes.TypeBases;
 using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi.ErrorHandling;

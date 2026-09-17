@@ -1,9 +1,10 @@
 ﻿using System.Text.Json.Serialization;
-using RobloxCloudApi.APIRequests.RequestHelpers;
-using RobloxCloudApi.APITypes;
+using RobloxCloudApi.APIRequests.Abstractions;
+using RobloxCloudApi.APITypes.RobloxObjects.Users;
+using RobloxCloudApi.APITypes.TypeBases;
 using RobloxCloudApi.Helpers.JsonConverters.RequestV2Helpers;
 
-namespace RobloxCloudApi.APIRequests.UsersApi.Requests;
+namespace RobloxCloudApi.APIRequests.UsersApi.Restrictions;
 
 [ApiTokenAuth]
 internal class UpdateRestrictionRequest : RequestBase<RestrictionData>

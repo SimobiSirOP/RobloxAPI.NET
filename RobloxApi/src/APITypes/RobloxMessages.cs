@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.Helpers;
 using RobloxCloudApi.Helpers.JsonConverters;
 

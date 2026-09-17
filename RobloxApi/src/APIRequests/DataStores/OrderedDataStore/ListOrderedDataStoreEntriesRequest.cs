@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
-using RobloxCloudApi.APIRequests.RequestHelpers;
-using RobloxCloudApi.APITypes.ListTypes;
+using RobloxCloudApi.APITypes.RobloxObjects.DataStoreTypes;
+using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.DataStores.OrderedDataStore;
 

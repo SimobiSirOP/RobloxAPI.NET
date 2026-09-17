@@ -1,5 +1,5 @@
 ﻿using RobloxCloudApi;
-using RobloxCloudApi.AccessTokens;
+using RobloxCloudApi.APITypes.AccessTokens;
 
 namespace UnitTests;
 

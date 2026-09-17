@@ -1,4 +1,4 @@
-﻿using RobloxCloudApi.APIRequests.RequestHelpers;
+﻿using RobloxCloudApi.APIRequests.Abstractions;
 
 namespace RobloxCloudApi.APITypes.Operations;
 

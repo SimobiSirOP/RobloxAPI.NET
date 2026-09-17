@@ -1,6 +1,7 @@
-﻿using RobloxCloudApi.APIRequests.RequestHelpers;
+﻿using RobloxCloudApi.APIRequests.Abstractions;
+using RobloxCloudApi.APITypes.TypeBases;
 
-namespace RobloxCloudApi.APIRequests.UsersApi.Requests;
+namespace RobloxCloudApi.APIRequests.UsersApi;
 
 [UserCookieAuth]
 public class ValidateDisplayNameExistingUserRequest : RequestBase<object>

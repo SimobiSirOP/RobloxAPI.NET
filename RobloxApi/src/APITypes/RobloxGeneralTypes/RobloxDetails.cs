@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxGeneralTypes;
 
 public class RobloxDetails
 {

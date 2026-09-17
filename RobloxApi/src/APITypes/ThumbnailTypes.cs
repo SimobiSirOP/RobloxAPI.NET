@@ -9,7 +9,8 @@ public enum RobloxThumbnailShape
 public enum RobloxThumbnailFormat
 {
     PNG,
-    JPG
+    JPG,
+    WEBP
 }
 
 // 48, 50, 60, 75, 100, 110, 150, 180, 352, 420, 720. Default is 420. 

@@ -1,6 +1,7 @@
 ﻿using System.Text.Json.Serialization;
+using RobloxCloudApi.APITypes.Operations;
 
-namespace RobloxCloudApi.APITypes.Operations;
+namespace RobloxCloudApi.APITypes.RobloxGeneralTypes;
 
 public class RobloxOperation : BaseOperation
 {

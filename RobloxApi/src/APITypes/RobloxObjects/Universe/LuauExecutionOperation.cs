@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
+using RobloxCloudApi.APITypes.Operations;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.Helpers.JsonConverters;
 
-namespace RobloxCloudApi.APITypes.Operations;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Universe;
 
 public class LuauExecutionOperation : BaseOperation
 {

@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using JetBrains.Annotations;
-using RobloxCloudApi.AccessTokens;
 using RobloxCloudApi.APIRequests.Abstractions;
-using RobloxCloudApi.APIRequests.RequestHelpers;
 using RobloxCloudApi.APITypes;
+using RobloxCloudApi.APITypes.AccessTokens;
+using RobloxCloudApi.APITypes.TypeBases;
 using RobloxCloudApi.ErrorHandling;
 using RobloxCloudApi.ErrorHandling.Exceptions;
 using RobloxCloudApi.Helpers;
@@ -13,6 +13,17 @@ namespace RobloxCloudApi;
 [PublicAPI]
 public class RobloxApiClient : IRobloxApiClient
 {
+    //
+    public DataStoresApi DataStores { get; }
+
+    public UsersApi Users { get; }
+    
+    public UniverseApi Universe { get; }
+    
+    public LuauExecutionApi LuauExecution { get; }
+    
+    public BadgesApi Badges { get; }
+    //
     private readonly HttpClient _httpClient;
 
     public RobloxApiClient(RobloxApiClientSettings robloxApiClientSettings, HttpClient? httpClient = default)
@@ -21,7 +32,12 @@ public class RobloxApiClient : IRobloxApiClient
         _httpClient = httpClient ??
                       new HttpClient(new SocketsHttpHandler
                           { PooledConnectionIdleTimeout = TimeSpan.FromMinutes(1) });
-        
+
+        DataStores = new DataStoresApi(this);
+        Users = new UsersApi(this);
+        Universe = new UniverseApi(this);
+        LuauExecution = new LuauExecutionApi(this);
+        Badges = new BadgesApi(this);
     }
 
     private RobloxApiClientSettings _robloxApiClientSettings { get; set; }
@@ -163,6 +179,13 @@ public class RobloxApiClientSettings
     public RobloxApiClientSettings(UserCookie userCookie, int requestRetryAmount = 5)
     {
         Auth = new AuthOptions(userCookie);
+        Timeout = new TimeSpan(0, 0, 5);
+        AmountOfRetries = requestRetryAmount;
+    }
+    
+    public RobloxApiClientSettings(int requestRetryAmount = 5)
+    {
+        Auth = new AuthOptions();
         Timeout = new TimeSpan(0, 0, 5);
         AmountOfRetries = requestRetryAmount;
     }

@@ -1,11 +1,12 @@
 ﻿using System.Text.Json.Serialization;
-using RobloxCloudApi.APIRequests.RequestHelpers;
-using RobloxCloudApi.APITypes.ListTypes;
+using RobloxCloudApi.APIRequests.Abstractions;
+using RobloxCloudApi.APITypes.RobloxObjects.Universe;
+using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
 
 // No auth
-public class GetUniversePlacesRequest : OldListRequestBase<PlaceInfoList>
+public class GetUniversePlacesRequest : OldListRequestBase<OldListResponseBase<PlaceInfo>>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Get;

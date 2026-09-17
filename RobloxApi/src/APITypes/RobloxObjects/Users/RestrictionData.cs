@@ -3,7 +3,7 @@ using RobloxCloudApi.APIRequests.Abstractions;
 using RobloxCloudApi.Helpers.JsonConverters;
 using RobloxCloudApi.Helpers.JsonConverters.RequestV2Helpers;
 
-namespace RobloxCloudApi.APITypes;
+namespace RobloxCloudApi.APITypes.RobloxObjects.Users;
 
 public class RestrictionData : ApiBaseData
 {

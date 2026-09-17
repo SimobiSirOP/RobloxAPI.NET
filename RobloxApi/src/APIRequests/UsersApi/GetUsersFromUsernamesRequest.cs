@@ -1,13 +1,13 @@
 ﻿using System.Text.Json.Serialization;
-using RobloxCloudApi.APIRequests.RequestHelpers;
-using RobloxCloudApi.APITypes.ListTypes;
+using RobloxCloudApi.APITypes.RobloxObjects.Users;
+using RobloxCloudApi.APITypes.TypeBases;
 
-namespace RobloxCloudApi.APIRequests.UsersApi.Requests;
+namespace RobloxCloudApi.APIRequests.UsersApi;
 
 
 [NoAuth]
 [UserCookieAuth]
-public class GetUsersFromUsernamesRequest : OldListRequestBase<RobloxUserList>
+public class GetUsersFromUsernamesRequest : OldListRequestBase<OldListResponseBase<RobloxUser>>
 {
     [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
 
