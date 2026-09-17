@@ -1,16 +1,16 @@
 # .NET API Wrapper of Roblox Cloud API
 
-**RobloxCloud.API** is an unofficial .NET API wrapper for Roblox API.
+**RobloxAPI.NET** is an unofficial .NET API wrapper for Roblox API.
 
-The **RobloxCloud.API** is an HTTP-based interface in order to access Cloud API.
+The **RobloxAPI.NET** is an HTTP-based interface in order to access Cloud API.
 
 
 ## 🪢 Installation
 
-The RobloxCloud.API is available on [NuGet](https://www.nuget.org/packages/RobloxCloud.API/).
+The RobloxAPI.NET is available on [NuGet](https://www.nuget.org/packages/RobloxAPI.NET/).
 You can install it by running the following command with .NET CLI:
 ```
-dotnet add package RobloxCloud.Client
+dotnet add package RobloxAPI.NET
 ```
 
 
@@ -37,7 +37,7 @@ This API targets **.NET 8.0** and higher
 ## ⛔ Currently WIP
 
 That means that this API Wrapper is still in development.
-Expect breaking changes.
+**_Expect breaking changes._**
 
 
 
