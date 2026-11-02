@@ -1,13 +1,14 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.APIRequests.Abstractions;
 using RobloxCloudApi.APITypes;
+using RobloxCloudApi.APITypes.Operations;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.UsersApi;
 
 [ApiTokenAuth]
-public class GenerateUserThumbnailRequest : RequestBase<RobloxOperation>
+public class GenerateUserThumbnailRequest : RequestBase<ThumbnailOperation>
 {
     public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
     public override string RequestPath => $"https://apis.roblox.com/cloud/v2/users/{UserId}:generateThumbnail";

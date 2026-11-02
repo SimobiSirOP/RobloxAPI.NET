@@ -89,7 +89,7 @@ public class UsersApi
         }))!;
     }
 
-    public async Task<RobloxOperation> GenerateUserThumbnail(
+    public async Task<ThumbnailOperation> GenerateUserThumbnail(
         
         long userId,
         RobloxThumbnailSize size = RobloxThumbnailSize.Size420,
@@ -105,7 +105,7 @@ public class UsersApi
             Shape = shape
         }))!;
         if (shouldWait)
-            return await uncompletedOperation.WaitForCompletionAsync<RobloxOperation>(_client)!;
+            return await uncompletedOperation.WaitForCompletionAsync<ThumbnailOperation>(_client)!;
         else 
             return uncompletedOperation;
     }
