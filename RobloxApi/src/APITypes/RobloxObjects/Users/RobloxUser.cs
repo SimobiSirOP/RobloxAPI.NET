@@ -8,7 +8,14 @@ public class RobloxUser
 
     [JsonPropertyName("id")] public long UserId { get; set; }
 
-    [JsonPropertyName("name")] public string? Username { get; set; }
+    [JsonPropertyName("name")] public string Username { get; set; } = null!;
 
     [JsonPropertyName("displayName")] public string? DisplayName { get; set; }
+
+    public override string ToString()
+    {
+        if (DisplayName != null) 
+            return $"{DisplayName} ({Username}) - {UserId}";
+        return $"{Username} - {UserId}";
+    }
 }

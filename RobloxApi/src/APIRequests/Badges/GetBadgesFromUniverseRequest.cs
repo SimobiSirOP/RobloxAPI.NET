@@ -8,7 +8,7 @@ namespace RobloxCloudApi.APIRequests.Badges;
 
 [UserCookieAuth]
 [NoAuth]
-public class GetBadgesFromUniverseRequest : OldListRequestBase<OldListResponseBase<RobloxBadge>>
+internal class GetBadgesFromUniverseRequest : OldListRequestBase<OldListResponseBase<RobloxBadge>>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
@@ -20,12 +20,12 @@ public class GetBadgesFromUniverseRequest : OldListRequestBase<OldListResponseBa
 
     [QueryParameter("sortOrder")]
     [QueryEnumToString]
-    public BadgesSortOrder SortOrder { get; set; }
+    public RobloxBadgesSortOrder SortOrder { get; set; }
+    
+}
 
-
-    public enum BadgesSortOrder
-    {
-        Rank,
-        DateCreated
-    }
+public enum RobloxBadgesSortOrder
+{
+    Rank,
+    DateCreated
 }

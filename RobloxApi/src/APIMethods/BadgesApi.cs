@@ -21,7 +21,7 @@ public class BadgesApi
         long universeId,
         string? cursor = null,
         int maxPageSize = 10,
-        GetBadgesFromUniverseRequest.BadgesSortOrder sortOrder = GetBadgesFromUniverseRequest.BadgesSortOrder.Rank)
+        RobloxBadgesSortOrder sortOrder = RobloxBadgesSortOrder.Rank)
     {
         return (await _client.ThrowIfNull().SendRequest(new GetBadgesFromUniverseRequest()
         {

@@ -7,7 +7,7 @@ using RobloxCloudApi.APITypes.TypeBases;
 namespace RobloxCloudApi.APIRequests.UniverseData.UniverseApi;
 
 [ApiTokenAuth]
-public class UpdateUniverseRequest : RequestBase<RobloxUniverse>
+internal class UpdateUniverseRequest : RequestBase<RobloxUniverse>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Patch;

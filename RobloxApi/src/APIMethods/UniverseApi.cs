@@ -71,7 +71,7 @@ public class UniverseApi
     /// <param name="universeId">A roblox universe id</param>
     /// <param name="message">A message to send</param>
     /// <param name="topic">Topic of the sent message</param>
-    public async Task PublishUniverseMessage( long universeId, string message, string topic = "Unknown")
+    public async Task PublishUniverseMessage( long universeId, string topic, string message)
     {
         await _client.ThrowIfNull().SendRequest(
             new PublishUniverseMessageRequest()

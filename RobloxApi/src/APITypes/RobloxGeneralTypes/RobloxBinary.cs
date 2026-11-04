@@ -11,7 +11,7 @@ public struct RobloxBinary
 
     public RobloxBinary(object obj, string binaryString)
     {
-        BinaryString = Convert.ToBase64String(Serializer.ConvertObjectToBytes(obj));
+        BinaryString = Convert.ToBase64String(Serializer.ConvertObjectToBytes(obj)).TrimEnd('=');
     }
 
     public RobloxBinary(string bytes)

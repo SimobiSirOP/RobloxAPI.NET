@@ -5,7 +5,7 @@ using RobloxCloudApi.APITypes.TypeBases;
 namespace RobloxCloudApi.APIRequests.Badges;
 
 [ApiTokenAuth]
-public class UpdateBadgeLocalizedNameRequest : RequestBase<string>
+internal class UpdateBadgeLocalizedNameRequest : RequestBase<string>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Post;

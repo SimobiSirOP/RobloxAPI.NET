@@ -3,7 +3,7 @@ using RobloxCloudApi.APIRequests.Abstractions;
 
 namespace RobloxCloudApi.APIRequests.Badges;
 
-public class DeleteBadgeLocalizedIconRequest : RequestBase<object>
+internal class DeleteBadgeLocalizedIconRequest : RequestBase<object>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Delete;

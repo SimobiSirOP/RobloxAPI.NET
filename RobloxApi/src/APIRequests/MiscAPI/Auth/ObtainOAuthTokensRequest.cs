@@ -5,7 +5,7 @@ using RobloxCloudApi.APITypes.AuthenticationTypes;
 
 namespace RobloxCloudApi.APIRequests.MiscAPI.Auth;
 
-public class ObtainOAuthTokensRequest : RequestBase<TokenExchangeResponse>
+internal class ObtainOAuthTokensRequest : RequestBase<TokenExchangeResponse>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Post;

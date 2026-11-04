@@ -4,7 +4,7 @@ using RobloxCloudApi.APIRequests.Abstractions;
 namespace RobloxCloudApi.APIRequests.Badges;
 
 
-public class UpdateBadgeLocalizedDescriptionRequest : RequestBase<string>
+internal class UpdateBadgeLocalizedDescriptionRequest : RequestBase<string>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Patch;

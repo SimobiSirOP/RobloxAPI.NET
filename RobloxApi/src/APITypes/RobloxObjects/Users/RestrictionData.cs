@@ -1,5 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.APIRequests.Abstractions;
+using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.Helpers.JsonConverters;
 using RobloxCloudApi.Helpers.JsonConverters.RequestV2Helpers;
 
@@ -47,7 +48,7 @@ public class GameJoinRestriction
 
     [JsonPropertyName("duration")] 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string? Duration { get; set; }
+    public RobloxDuration? Duration { get; set; }
 
     [JsonPropertyName("excludeAltAccounts")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]

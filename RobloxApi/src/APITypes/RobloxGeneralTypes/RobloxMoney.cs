@@ -4,7 +4,7 @@ namespace RobloxCloudApi.APITypes.RobloxGeneralTypes;
 
 public class RobloxMoney
 {
-    [JsonPropertyName("currencyCode")] public string? Currency { get; set; }
+    [JsonPropertyName("currencyCode")] public string? CurrencyCode { get; set; }
 
     [JsonPropertyName("quantity")] public RobloxDecimal Quantity { get; set; }
 }

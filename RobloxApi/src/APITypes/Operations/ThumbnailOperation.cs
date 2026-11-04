@@ -1,8 +1,9 @@
-﻿using RobloxCloudApi.APITypes.RobloxGeneralTypes;
+﻿using System.Text.Json;
+using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 
 namespace RobloxCloudApi.APITypes.Operations;
 
 public class ThumbnailOperation : RobloxOperation
 {
-    string? ImageUri => (string?)Result.PropData["imageUri"];
+    string? ImageUri => ((JsonElement?)Result?.PropData?["imageUri"])?.ToString();
 }

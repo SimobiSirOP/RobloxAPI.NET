@@ -5,8 +5,8 @@ using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
 
-// No auth
-public class GetUniversePlacesRequest : OldListRequestBase<OldListResponseBase<PlaceInfo>>
+[NoAuth]
+internal class GetUniversePlacesRequest : OldListRequestBase<OldListResponseBase<PlaceInfo>>
 {
     [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Get;

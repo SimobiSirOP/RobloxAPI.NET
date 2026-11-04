@@ -7,7 +7,7 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 
 [NoAuth]
 [UserCookieAuth]
-public class GetUsersFromUsernamesRequest : OldListRequestBase<OldListResponseBase<RobloxUser>>
+internal class GetUsersFromUsernamesRequest : OldListRequestBase<OldListResponseBase<RobloxUser>>
 {
     [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
 

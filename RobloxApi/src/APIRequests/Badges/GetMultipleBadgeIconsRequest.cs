@@ -9,7 +9,7 @@ namespace RobloxCloudApi.APIRequests.Badges;
 
 [NoAuth]
 [UserCookieAuth]
-public class GetMultipleBadgeIconsRequest : RequestBase<OldListResponseBase<RobloxBadgeIcon>>
+internal class GetMultipleBadgeIconsRequest : RequestBase<OldListResponseBase<RobloxBadgeIcon>>
 {
     [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
 

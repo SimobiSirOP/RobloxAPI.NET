@@ -5,7 +5,7 @@ using RobloxCloudApi.APITypes.RobloxObjects.Badges;
 namespace RobloxCloudApi.APIRequests.Badges;
 
 
-public class GetBadgeInformationRequest : RequestBase<RobloxBadge>
+internal class GetBadgeInformationRequest : RequestBase<RobloxBadge>
 {
     [JsonIgnore] public override HttpMethod HttpMethod => HttpMethod.Get;
 
