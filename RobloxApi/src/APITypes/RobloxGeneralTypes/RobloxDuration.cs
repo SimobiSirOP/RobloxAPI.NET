@@ -9,7 +9,7 @@ public struct RobloxDuration
     private static long MaximumDuration
     {
         get {
-            var maximumDate = new DateTimeOffset(9999, 0, 0, 0, 0, 0, TimeSpan.Zero);
+            var maximumDate = new DateTimeOffset(9999, 1, 1, 1, 0, 0, TimeSpan.Zero);
             var timeSpan =
                 maximumDate - DateTimeOffset.UtcNow;
             return (long)timeSpan.TotalSeconds;
