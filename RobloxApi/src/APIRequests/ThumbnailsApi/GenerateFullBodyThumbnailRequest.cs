@@ -11,8 +11,10 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 [NoAuth]
 internal class GenerateFullBodyThumbnailRequest : OldListRequestBase<OldListResponseBase<ThumbnailImageData>>
 {
+    [JsonIgnore]
     public override HttpMethod HttpMethod => HttpMethod.Get;
 
+    [JsonIgnore]
     public override string RequestPath => $"https://thumbnails.roblox.com/v1/users/avatar";
     
     [QueryParameter("userIds")]

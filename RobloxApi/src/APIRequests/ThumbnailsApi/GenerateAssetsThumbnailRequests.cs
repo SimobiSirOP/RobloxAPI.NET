@@ -10,8 +10,10 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 [UserCookieAuth]
 internal class GenerateAssetsThumbnailRequests : OldListRequestBase<OldListResponseBase<ThumbnailImageData>>
 {
+    [JsonIgnore]
     public override HttpMethod HttpMethod => HttpMethod.Get;
 
+    [JsonIgnore]
     public override string RequestPath => $"https://thumbnails.roblox.com/v1/assets";
     
     [QueryParameter("assetIds")]

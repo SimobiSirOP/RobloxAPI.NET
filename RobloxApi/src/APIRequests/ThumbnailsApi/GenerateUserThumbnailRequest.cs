@@ -11,7 +11,10 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 [ApiTokenAuth]
 internal class GenerateUserThumbnailRequest : RequestBase<ThumbnailOperation>
 {
+    [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
+    
+    [JsonIgnore]
     public override string RequestPath => $"https://apis.roblox.com/cloud/v2/users/{UserId}:generateThumbnail";
 
     public long? UserId { get; set; }

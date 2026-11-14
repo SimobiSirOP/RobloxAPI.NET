@@ -7,7 +7,10 @@ namespace RobloxCloudApi.APIRequests.UniverseData.UniverseApi;
 [ApiTokenAuth]
 internal class RestartUniverseServersRequest : RequestBase<object>
 {
+    [JsonIgnore]
     public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
+    
+    [JsonIgnore]
     public override string RequestPath => $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}:restartServers";
     
     [JsonIgnore]

@@ -13,6 +13,7 @@ internal class GetMultipleBadgeIconsRequest : RequestBase<OldListResponseBase<Ro
 {
     [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
 
+    [JsonIgnore]
     public override string RequestPath => "https://thumbnails.roblox.com/v1/badges/icons";
     
     [QueryParameter("badgeIds")] 

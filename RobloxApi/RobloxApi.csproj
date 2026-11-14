@@ -43,8 +43,4 @@
         </None>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="src\APIRequests\UsersApi\Requests\" />
-    </ItemGroup>
-
 </Project>
