@@ -8,14 +8,11 @@ namespace RobloxCloudApi;
 
 #pragma warning disable CS8603
 
-public class DataStoresApi
+public class DataStoresApi : RobloxClientMethodsBase
 {
-    private readonly IRobloxApiClient _client;
 
-    public DataStoresApi(IRobloxApiClient client)
-    {
-        this._client = client;
-    }
+    public DataStoresApi(IRobloxApiClient client) : base(client)
+    { }
     
     /// <summary>
     ///     Use this method to get a page of DataStores in Universe.

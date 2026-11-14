@@ -18,4 +18,6 @@ public interface IRobloxApiClient
     LuauExecutionApi LuauExecution { get; }
     
     BadgesApi Badges { get; }
+    
+    ThumbnailApi Thumbnails { get; }
 }

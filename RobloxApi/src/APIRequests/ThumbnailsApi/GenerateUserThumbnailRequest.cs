@@ -3,6 +3,7 @@ using RobloxCloudApi.APIRequests.Abstractions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
+using RobloxCloudApi.APITypes.RobloxObjects.Thumbnails;
 using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.UsersApi;
@@ -39,4 +40,7 @@ internal class GenerateUserThumbnailRequest : RequestBase<ThumbnailOperation>
     [JsonConverter(typeof(JsonStringEnumConverter<RobloxThumbnailShape>))]
     [QueryEnumToString]
     public RobloxThumbnailShape? Shape { get; set; }
+    
+    
+    
 }

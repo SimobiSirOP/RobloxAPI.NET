@@ -3,20 +3,18 @@ using RobloxCloudApi.APIRequests.UsersApi.Restrictions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
+using RobloxCloudApi.APITypes.RobloxObjects.Thumbnails;
 using RobloxCloudApi.APITypes.RobloxObjects.Users;
 using RobloxCloudApi.APITypes.TypeBases;
+using RobloxCloudApi.ErrorHandling.Exceptions;
 using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
 
-public class UsersApi
+public class UsersApi : RobloxClientMethodsBase
 {
-    private readonly IRobloxApiClient _client;
-
-    public UsersApi(IRobloxApiClient client)
-    {
-        this._client = client;
-    }
+    public UsersApi(IRobloxApiClient client) : base(client)
+    { }
     
     
     /// <summary>
@@ -89,6 +87,16 @@ public class UsersApi
         }))!;
     }
 
+    /// <summary>
+    /// Generate a thumbnail for a user
+    /// </summary>
+    /// <param name="userId">A Roblox user id</param>
+    /// <param name="size">A image size <see cref="RobloxThumbnailSize"> </param>
+    /// <param name="format">A JPG or PNG format of generated image</param>
+    /// <param name="shape">A Round of Square shape of a image</param>
+    /// <param name="shouldWait">Should this operation automatically wait for its end</param>
+    /// <returns></returns>
+    [Obsolete("Use Client.Thumbnails.GenerateUserThumbnail instead")]
     public async Task<ThumbnailOperation> GenerateUserThumbnail(
         
         long userId,
@@ -97,17 +105,7 @@ public class UsersApi
         RobloxThumbnailShape shape = RobloxThumbnailShape.ROUND,
         bool shouldWait = true)
     {
-        var uncompletedOperation = (await _client.ThrowIfNull().SendRequest(new GenerateUserThumbnailRequest
-        {
-            UserId = userId,
-            Size = size,
-            Format = format,
-            Shape = shape
-        }))!;
-        if (shouldWait)
-            return await uncompletedOperation.WaitForCompletionAsync<ThumbnailOperation>(_client)!;
-        else 
-            return uncompletedOperation;
+        return await _client.Thumbnails.GenerateUserThumbnail(userId, size, format, shape, shouldWait);
     }
     
     
@@ -239,4 +237,5 @@ public class UsersApi
         return await this.SetUserRestrictionsInUniverse(userId, universeId, false, DateTime.UtcNow, null, string.Empty,
             string.Empty, null);
     }
+    
 }

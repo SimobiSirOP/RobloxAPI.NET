@@ -37,7 +37,7 @@ public abstract class RequestBase<TResponse> : IRequest<TResponse>
                 else
                     paramValue = (int)(rawValue);
             }
-            else if (rawValue is IEnumerable enumerable && rawValue is not string)
+            else if (rawValue is IEnumerable enumerable && rawValue is not string) // CSV from array
                 paramValue = string.Join(',', enumerable.Cast<object>());
             else paramValue = rawValue;
 

@@ -13,14 +13,10 @@ using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
 
-public class UniverseApi
+public class UniverseApi : RobloxClientMethodsBase
 {
-    private readonly IRobloxApiClient _client;
-
-    public UniverseApi(IRobloxApiClient client)
-    {
-        this._client = client;
-    }
+    public UniverseApi(IRobloxApiClient client) : base(client)
+    { }
     
     
     /// <summary>

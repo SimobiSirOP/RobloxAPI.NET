@@ -13,14 +13,10 @@ using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
 
-public class LuauExecutionApi
+public class LuauExecutionApi : RobloxClientMethodsBase
 {
-    private readonly IRobloxApiClient _client;
-
-    public LuauExecutionApi(IRobloxApiClient client)
-    {
-        this._client = client;
-    }
+    public LuauExecutionApi(IRobloxApiClient client) : base(client)
+    { }
     
     /// <summary>
     /// Executes a Luau script in a specific place within a Roblox universe.

@@ -23,6 +23,9 @@ public class RobloxApiClient : IRobloxApiClient
     public LuauExecutionApi LuauExecution { get; }
     
     public BadgesApi Badges { get; }
+    
+    public ThumbnailApi Thumbnails { get; }
+    
     //
     private readonly HttpClient _httpClient;
 
@@ -38,6 +41,7 @@ public class RobloxApiClient : IRobloxApiClient
         Universe = new UniverseApi(this);
         LuauExecution = new LuauExecutionApi(this);
         Badges = new BadgesApi(this);
+        
     }
 
     private RobloxApiClientSettings _robloxApiClientSettings { get; set; }

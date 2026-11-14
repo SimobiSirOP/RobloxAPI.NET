@@ -6,14 +6,10 @@ using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
 
-public class BadgesApi
+public class BadgesApi : RobloxClientMethodsBase
 {
-    private readonly IRobloxApiClient _client;
-
-    public BadgesApi(IRobloxApiClient client)
-    {
-        this._client = client;
-    }
+    public BadgesApi(IRobloxApiClient client) : base(client)
+    {}
     
     #region Badges
     
