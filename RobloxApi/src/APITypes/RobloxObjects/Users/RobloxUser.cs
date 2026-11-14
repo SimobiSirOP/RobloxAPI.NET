@@ -14,7 +14,7 @@ public class RobloxUser
 
     public override string ToString()
     {
-        if (DisplayName != null) 
+        if (DisplayName != null)
             return $"{DisplayName} ({Username}) - {UserId}";
         return $"{Username} - {UserId}";
     }

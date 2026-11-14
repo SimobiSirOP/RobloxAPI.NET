@@ -7,8 +7,7 @@ public interface IRequest
 {
     [JsonIgnore] public HttpMethod HttpMethod { get; }
 
-    [UriString]
-    [JsonIgnore] public string RequestPath { get; }
+    [UriString] [JsonIgnore] public string RequestPath { get; }
 
     public HttpContent? GetHttpContent();
 

@@ -4,7 +4,6 @@ using RobloxCloudApi.APITypes.TypeBases;
 
 namespace RobloxCloudApi.APIRequests.UsersApi;
 
-
 [NoAuth]
 [UserCookieAuth]
 internal class GetUsersFromUsernamesRequest : OldListRequestBase<OldListResponseBase<RobloxUser>>

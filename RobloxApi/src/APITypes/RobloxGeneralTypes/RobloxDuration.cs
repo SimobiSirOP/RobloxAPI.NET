@@ -8,17 +8,18 @@ public struct RobloxDuration
 {
     private static long MaximumDuration
     {
-        get {
+        get
+        {
             var maximumDate = new DateTimeOffset(9999, 1, 1, 1, 0, 0, TimeSpan.Zero);
             var timeSpan =
                 maximumDate - DateTimeOffset.UtcNow;
             return (long)timeSpan.TotalSeconds;
         }
     }
-    
+
     public string Duration { get; set; }
 
-    
+
     public RobloxDuration(double duration)
     {
         if (duration < -MaximumDuration || duration > MaximumDuration)
@@ -26,7 +27,7 @@ public struct RobloxDuration
 
         Duration = duration + "s";
     }
-    
+
     public RobloxDuration(long duration)
     {
         if (duration < -MaximumDuration || duration > MaximumDuration)
@@ -44,43 +45,46 @@ public struct RobloxDuration
 
         Duration = durationStr;
     }
-    
+
     // To double and from
     public static implicit operator RobloxDuration(double degrees)
     {
         return new RobloxDuration(degrees);
     }
-    
+
     public static implicit operator double(RobloxDuration duration)
     {
         return double.Parse(duration.Duration.Substring(0,
             duration.Duration.Length - 1));
     }
-    
+
     // To long and from
     public static implicit operator RobloxDuration(long degrees)
     {
         return new RobloxDuration(degrees);
     }
-    
+
     public static implicit operator long(RobloxDuration duration)
     {
         return long.Parse(duration.Duration.Substring(0,
             duration.Duration.Length - 1));
     }
-    
+
     // to string and from
     public static implicit operator string(RobloxDuration duration)
     {
         return duration.Duration;
     }
-    
+
     public static implicit operator RobloxDuration(string duration)
     {
         return new RobloxDuration(duration);
     }
 
-    public override string ToString() => Duration;
+    public override string ToString()
+    {
+        return Duration;
+    }
 }
 
 public class RobloxDurationConverter : JsonConverter<RobloxDuration>

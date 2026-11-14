@@ -13,7 +13,7 @@ public abstract class BaseOperation : ApiBaseData, IOperation
     // Operations are only used in v2 Cloud API as far as I know
     {
         if (IsCompleted()) return (this as T)!;
-        
+
         // Preparing operation request
         if (!domain.EndsWith("/")) domain += "/";
 
@@ -29,7 +29,7 @@ public abstract class BaseOperation : ApiBaseData, IOperation
             T? result = null;
             result = await client.ThrowIfNull().SendRequest(operationRequest);
             if (result.IsCompleted())
-                return (result as T)!;
+                return result!;
             await Task.Delay(OperationOptions.TimeBetweenAttempts);
         }
 

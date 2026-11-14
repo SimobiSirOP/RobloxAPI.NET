@@ -6,13 +6,11 @@ namespace RobloxCloudApi.APIRequests.Badges;
 
 internal class GetBadgeIconsRequest : OldListRequestBase<OldListResponseBase<RobloxBadgeIcon>>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
 
     [JsonIgnore]
     public override string RequestPath =>
         $"https://apis.roblox.com/legacy-game-internationalization/v1/badges/{BadgeId}/icons";
-    
-    [JsonIgnore]
-    public long BadgeId { get; set; }
+
+    [JsonIgnore] public long BadgeId { get; set; }
 }

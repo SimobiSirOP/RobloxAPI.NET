@@ -10,8 +10,7 @@ public abstract class RequestBase<TResponse> : IRequest<TResponse>
 {
     [JsonIgnore] public abstract HttpMethod HttpMethod { get; }
 
-    [UriString]
-    [JsonPropertyName("path")] public abstract string RequestPath { get; }
+    [UriString] [JsonPropertyName("path")] public abstract string RequestPath { get; }
 
     public virtual HttpContent? GetHttpContent()
     {
@@ -35,17 +34,22 @@ public abstract class RequestBase<TResponse> : IRequest<TResponse>
                 if (Attribute.IsDefined(parameter, typeof(QueryEnumToString)))
                     paramValue = rawValue.ToString();
                 else
-                    paramValue = (int)(rawValue);
+                    paramValue = (int)rawValue;
             }
             else if (rawValue is IEnumerable enumerable && rawValue is not string) // CSV from array
+            {
                 paramValue = string.Join(',', enumerable.Cast<object>());
-            else paramValue = rawValue;
+            }
+            else
+            {
+                paramValue = rawValue;
+            }
 
 
             var queryParameter =
                 (QueryParameter)Attribute.GetCustomAttribute(parameter, typeof(QueryParameter))!;
 
-            var paramName = queryParameter.Name ??  parameter.Name;
+            var paramName = queryParameter.Name ?? parameter.Name;
 
             if (queryAdditionString.Length > 0 && (!queryParameter.IgnoreWhenNull || paramValue != null))
                 queryAdditionString.Append("&");
@@ -62,7 +66,7 @@ public abstract class RequestBase<TResponse> : IRequest<TResponse>
     }
 }
 
-[AttributeUsage(AttributeTargets.Property, Inherited = true)]
+[AttributeUsage(AttributeTargets.Property)]
 [MeansImplicitUse]
 public class QueryParameter : Attribute
 {
@@ -80,6 +84,4 @@ public class QueryParameter : Attribute
 [AttributeUsage(AttributeTargets.Property)]
 public class QueryEnumToString : Attribute
 {
-    public QueryEnumToString()
-    {}
 }

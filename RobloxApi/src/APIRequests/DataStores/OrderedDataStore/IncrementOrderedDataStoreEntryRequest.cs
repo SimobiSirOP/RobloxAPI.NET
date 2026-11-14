@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.APIRequests.Abstractions;
-using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.RobloxObjects.DataStoreTypes;
 using RobloxCloudApi.APITypes.TypeBases;
 
@@ -22,7 +21,7 @@ public class IncrementOrderedDataStoreEntryRequest : RequestBase<OrderedDataStor
 
     [JsonIgnore] public string? EntryId { get; set; }
 
-    [JsonIgnore] public string ScopeId { get; set; }  = "";
-    
+    [JsonIgnore] public string ScopeId { get; set; } = "";
+
     [JsonPropertyName("amount")] public long Amount { get; set; }
 }

@@ -5,5 +5,6 @@ namespace RobloxCloudApi.APITypes.RobloxObjects.DataStoreTypes;
 
 public class OrderedDataStoreEntryList : ListResponseBase<OrderedDataStoreEntry>
 {
-    [JsonPropertyName("orderedDataStoreEntries")] public override OrderedDataStoreEntry[]? List { get; set; }
+    [JsonPropertyName("orderedDataStoreEntries")]
+    public override OrderedDataStoreEntry[]? List { get; set; }
 }

@@ -8,10 +8,9 @@ namespace RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
 [NoAuth]
 internal class GetUniversePlacesRequest : OldListRequestBase<OldListResponseBase<PlaceInfo>>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
-    [JsonIgnore]
-    public override string RequestPath => $"https://develop.roblox.com/v1/universes/{UniverseId}/places";
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
+
+    [JsonIgnore] public override string RequestPath => $"https://develop.roblox.com/v1/universes/{UniverseId}/places";
 
     [JsonIgnore] public long? UniverseId { get; set; }
 

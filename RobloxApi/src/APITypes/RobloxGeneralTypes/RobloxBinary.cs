@@ -23,14 +23,17 @@ public struct RobloxBinary
             BinaryString = string.Empty;
             return;
         }
-        
+
         Span<byte> span = new byte[bytes.Length];
         if (Convert.TryFromBase64String(bytes, span, out _))
             throw new ArgumentException("Invalid Base64 string provided.");
         BinaryString = bytes;
     }
 
-    public override string ToString() => BinaryString;
+    public override string ToString()
+    {
+        return BinaryString;
+    }
 }
 
 public class RobloxBytesConverter : JsonConverter<RobloxBinary>

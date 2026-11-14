@@ -8,11 +8,9 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 [UserCookieAuth]
 internal class ValidateDisplayNameNewUserRequest : RequestBase<object>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
-    
-    [JsonIgnore]
-    public override string RequestPath => "https://users.roblox.com/v1/display-names/validate";
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
+
+    [JsonIgnore] public override string RequestPath => "https://users.roblox.com/v1/display-names/validate";
 
     [QueryParameter("displayName")] public required string DisplayName { get; set; }
 }

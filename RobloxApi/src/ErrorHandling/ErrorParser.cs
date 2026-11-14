@@ -13,8 +13,8 @@ public static class ErrorParser
         var error = Serializer.SerializeFromString<RobloxError>(await response.Content.ReadAsStringAsync());
 
         if (error.ErrorCode == null)
-                return await GetErrorStringFromArray(response);
-            
+            return await GetErrorStringFromArray(response);
+
         return await GetBasicErrorString(response) + error;
     }
 
@@ -26,9 +26,9 @@ public static class ErrorParser
             return await GetBasicErrorString(response);
 
         StringBuilder newErrorString = new(await GetBasicErrorString(response));
-        
+
         if (errorMessage.List == null) return newErrorString.ToString();
-        
+
         foreach (var error in errorMessage.List)
             newErrorString.AppendLine(error.ToString());
         return newErrorString.ToString();

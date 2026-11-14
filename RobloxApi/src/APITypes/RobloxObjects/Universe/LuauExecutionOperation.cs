@@ -15,8 +15,7 @@ public class LuauExecutionOperation : BaseOperation
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTime? UpdateTime { get; set; }
 
-    [JsonPropertyName("user")]
-    public long? UserId { get; set; }
+    [JsonPropertyName("user")] public long? UserId { get; set; }
 
     [JsonPropertyName("state")]
     [JsonConverter(typeof(JsonStringEnumConverter))]

@@ -2,7 +2,6 @@
 using RobloxCloudApi.APIRequests.Abstractions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
-using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.APITypes.RobloxObjects.Thumbnails;
 using RobloxCloudApi.APITypes.TypeBases;
 
@@ -11,9 +10,8 @@ namespace RobloxCloudApi.APIRequests.UsersApi;
 [ApiTokenAuth]
 internal class GenerateUserThumbnailRequest : RequestBase<ThumbnailOperation>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
-    
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Get;
+
     [JsonIgnore]
     public override string RequestPath => $"https://apis.roblox.com/cloud/v2/users/{UserId}:generateThumbnail";
 
@@ -43,7 +41,4 @@ internal class GenerateUserThumbnailRequest : RequestBase<ThumbnailOperation>
     [JsonConverter(typeof(JsonStringEnumConverter<RobloxThumbnailShape>))]
     [QueryEnumToString]
     public RobloxThumbnailShape? Shape { get; set; }
-    
-    
-    
 }

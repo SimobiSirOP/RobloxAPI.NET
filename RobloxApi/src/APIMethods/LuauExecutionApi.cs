@@ -1,14 +1,6 @@
-﻿using RobloxCloudApi.APIRequests.Badges;
-using RobloxCloudApi.APIRequests.LuauExecution;
-using RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
-using RobloxCloudApi.APIRequests.UniverseData.UniverseApi;
-using RobloxCloudApi.APITypes;
-using RobloxCloudApi.APITypes.Operations;
+﻿using RobloxCloudApi.APIRequests.LuauExecution;
 using RobloxCloudApi.APITypes.RobloxGeneralTypes;
-using RobloxCloudApi.APITypes.RobloxObjects.Badges;
 using RobloxCloudApi.APITypes.RobloxObjects.Universe;
-using RobloxCloudApi.APITypes.TypeBases;
-using RobloxCloudApi.ErrorHandling.Exceptions;
 using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
@@ -16,10 +8,11 @@ namespace RobloxCloudApi;
 public class LuauExecutionApi : RobloxClientMethodsBase
 {
     public LuauExecutionApi(IRobloxApiClient client) : base(client)
-    { }
-    
+    {
+    }
+
     /// <summary>
-    /// Executes a Luau script in a specific place within a Roblox universe.
+    ///     Executes a Luau script in a specific place within a Roblox universe.
     /// </summary>
     /// <param name="universeId">The ID of the Roblox universe</param>
     /// <param name="placeId">The ID of the place within the universe</param>
@@ -28,7 +21,7 @@ public class LuauExecutionApi : RobloxClientMethodsBase
     /// <param name="returnErrorsInstead">Indicates whether to return errors instead of throwing exceptions.</param>
     /// <param name="enableBinaryOutput">Specifies whether the execution should produce binary output.</param>
     /// <param name="binaryInput">Optional binary input for the execution in place of a script.</param>
-    /// <returns>An instance of <see cref="LuauExecutionOperation"/></returns>
+    /// <returns>An instance of <see cref="LuauExecutionOperation" /></returns>
     public async Task<LuauExecutionOperation> RunLuauExecution(
         long universeId,
         long placeId,
@@ -59,15 +52,14 @@ public class LuauExecutionApi : RobloxClientMethodsBase
                 BinaryInput = binaryInput,
                 EnableBinaryOutput = enableBinaryOutput
             })!;
-        
+
         if (shouldWait)
             return await uncompletedOperation!.WaitForCompletionAsync<LuauExecutionOperation>(_client)!;
-        else 
-            return uncompletedOperation!;
+        return uncompletedOperation!;
     }
 
     /// <summary>
-    /// Retrieves a list of Luau execution logs for a specific operation in a Roblox Universe.
+    ///     Retrieves a list of Luau execution logs for a specific operation in a Roblox Universe.
     /// </summary>
     /// <param name="operation">The Luau execution operation</param>
     /// <param name="pageToken">An optional token to fetch a specific page of logs. Can be null to fetch the first page.</param>
@@ -93,5 +85,4 @@ public class LuauExecutionApi : RobloxClientMethodsBase
         };
         return (await _client.ThrowIfNull().SendRequest(request))!;
     }
-    
 }

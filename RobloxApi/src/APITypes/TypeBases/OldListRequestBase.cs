@@ -9,7 +9,7 @@ public abstract class OldListRequestBase<T> : RequestBase<T>
 {
     [QueryParameter("cursor", true)] public string? Cursor { get; set; }
 
-    [QueryParameter("sortOrder", true)] 
+    [QueryParameter("sortOrder", true)]
     [QueryEnumToString]
     public SortOrder? SortOrder { get; set; }
 

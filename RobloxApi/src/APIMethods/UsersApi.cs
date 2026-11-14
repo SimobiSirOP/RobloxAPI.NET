@@ -2,11 +2,9 @@
 using RobloxCloudApi.APIRequests.UsersApi.Restrictions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
-using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.APITypes.RobloxObjects.Thumbnails;
 using RobloxCloudApi.APITypes.RobloxObjects.Users;
 using RobloxCloudApi.APITypes.TypeBases;
-using RobloxCloudApi.ErrorHandling.Exceptions;
 using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
@@ -14,9 +12,10 @@ namespace RobloxCloudApi;
 public class UsersApi : RobloxClientMethodsBase
 {
     public UsersApi(IRobloxApiClient client) : base(client)
-    { }
-    
-    
+    {
+    }
+
+
     /// <summary>
     ///     Use this method to get a list of RobloxUsers from a list of Usernames
     /// </summary>
@@ -24,7 +23,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="excludeBannedUsers">Should it include banned users in search or not</param>
     /// <returns>An array of <see cref="RobloxUser" /></returns>
     public async Task<OldListResponseBase<RobloxUser>> GetUsersFromUsernames(
-        
         string[] usernames,
         bool excludeBannedUsers = true
     )
@@ -44,7 +42,7 @@ public class UsersApi : RobloxClientMethodsBase
     public async Task<RobloxUser?> GetUserFromUsername(
         string username)
     {
-        var robloxUsers = (await this.GetUsersFromUsernames([username])).List;
+        var robloxUsers = (await GetUsersFromUsernames([username])).List;
         if (robloxUsers!.Length == 0)
             return null;
         // Validating, because it also checks for previous usernames
@@ -61,7 +59,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="excludeBannedUsers">Should it include banned users in search or not</param>
     /// <returns>An array of <see cref="RobloxUser" /></returns>
     public async Task<RobloxUser[]> GetUsersFromIds(
-        
         long[] userIds,
         bool excludeBannedUsers = true)
     {
@@ -78,7 +75,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="userId">A Roblox user id</param>
     /// <returns>An instance of <see cref="RobloxFullUser" /></returns>
     public async Task<RobloxFullUser> GetFullUserFromId(
-        
         long userId)
     {
         return (await _client.ThrowIfNull().SendRequest(new GetUserFromIdRequest
@@ -88,7 +84,7 @@ public class UsersApi : RobloxClientMethodsBase
     }
 
     /// <summary>
-    /// Generate a thumbnail for a user
+    ///     Generate a thumbnail for a user
     /// </summary>
     /// <param name="userId">A Roblox user id</param>
     /// <param name="size">A image size <see cref="RobloxThumbnailSize"> </param>
@@ -98,7 +94,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <returns></returns>
     [Obsolete("Use Client.Thumbnails.GenerateUserThumbnail instead")]
     public async Task<ThumbnailOperation> GenerateUserThumbnail(
-        
         long userId,
         RobloxThumbnailSize size = RobloxThumbnailSize.Size420,
         RobloxThumbnailFormat format = RobloxThumbnailFormat.PNG,
@@ -107,10 +102,9 @@ public class UsersApi : RobloxClientMethodsBase
     {
         return await _client.Thumbnails.GenerateUserThumbnail(userId, size, format, shape, shouldWait);
     }
-    
-    
-    
-     /// <summary>
+
+
+    /// <summary>
     ///     Use this method to get one page of Restrictions
     /// </summary>
     /// <param name="universeId">A roblox universe id</param>
@@ -124,7 +118,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// </param>
     /// <returns>The array of <see cref="RestrictionList" /></returns>
     public async Task<RestrictionList> ListRestrictedUsersInUniverse(
-        
         long universeId,
         int maxPageSize = 10,
         string pageToken = null!)
@@ -145,7 +138,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="universeId">A roblox universe id</param>
     /// <returns>A instance of <see cref="RestrictionData" /></returns>
     public async Task<RestrictionData> GetUserRestrictionsInUniverse(
-        
         long userId,
         long universeId
     )
@@ -171,7 +163,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="inherited">Should this restriction be inherited by other users</param>
     /// <returns>An Instance of <see cref="RestrictionData" /></returns>
     public async Task<RestrictionData> SetUserRestrictionsInUniverse(
-        
         long userId,
         long universeId,
         bool active,
@@ -192,7 +183,7 @@ public class UsersApi : RobloxClientMethodsBase
             ExcludeAltAccounts = excludeAlts,
             Inherited = inherited
         };
-        return (await _client.ThrowIfNull().SendRequest(new UpdateRestrictionRequest()
+        return (await _client.ThrowIfNull().SendRequest(new UpdateRestrictionRequest
         {
             GameJoinRestriction = restriction,
             UniverseId = universeId,
@@ -211,7 +202,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="excludeAlts">Should it ban alt accounts too or not</param>
     /// <returns>An Instance of <see cref="RestrictionData" /></returns>
     public async Task<RestrictionData> BanUserFromUniverse(
-        
         long userId,
         long universeId,
         long? duration = null,
@@ -219,7 +209,8 @@ public class UsersApi : RobloxClientMethodsBase
         string? privateReason = null,
         bool? excludeAlts = false)
     {
-        return await this.SetUserRestrictionsInUniverse(userId, universeId, true, DateTime.UtcNow, duration != null ? duration + "s" : null,
+        return await SetUserRestrictionsInUniverse(userId, universeId, true, DateTime.UtcNow,
+            duration != null ? duration + "s" : null,
             displayReason, privateReason ?? displayReason, excludeAlts);
     }
 
@@ -230,12 +221,10 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="universeId">A Roblox universe ID</param>
     /// <returns>An Instance of <see cref="RestrictionData" /></returns>
     public async Task<RestrictionData> UnbanUserFromUniverse(
-        
         long userId,
         long universeId)
     {
-        return await this.SetUserRestrictionsInUniverse(userId, universeId, false, DateTime.UtcNow, null, string.Empty,
+        return await SetUserRestrictionsInUniverse(userId, universeId, false, DateTime.UtcNow, null, string.Empty,
             string.Empty, null);
     }
-    
 }

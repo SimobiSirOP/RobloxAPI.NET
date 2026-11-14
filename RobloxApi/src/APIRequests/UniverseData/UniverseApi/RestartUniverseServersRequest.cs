@@ -7,30 +7,27 @@ namespace RobloxCloudApi.APIRequests.UniverseData.UniverseApi;
 [ApiTokenAuth]
 internal class RestartUniverseServersRequest : RequestBase<object>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
-    
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
+
     [JsonIgnore]
     public override string RequestPath => $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}:restartServers";
-    
-    [JsonIgnore]
-    public long UniverseId { get; set; }
-    
-   
+
+    [JsonIgnore] public long UniverseId { get; set; }
+
+
     [JsonPropertyName("placeIds")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public long[]? PlaceIds { get; set; }
-    
+
     [JsonPropertyName("closeAllVersions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public bool? CloseAllVersions { get; set; }
-    
+
     [JsonPropertyName("bleedOffServers")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public bool? BleedOffServers { get; set; }
-    
+
     [JsonPropertyName("bleedOffDurationMinutes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public long? BleedOffDurationMinutes { get; set; }
-    
 }

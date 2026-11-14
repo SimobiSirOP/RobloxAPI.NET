@@ -4,17 +4,17 @@
 
 The **RobloxAPI.NET** is an HTTP-based interface in order to access Cloud API.
 
-
 ## 🪢 Installation
 
 The RobloxAPI.NET is available on [NuGet](https://www.nuget.org/packages/RobloxAPI.NET/).
 You can install it by running the following command with .NET CLI:
+
 ```
 dotnet add package RobloxAPI.NET
 ```
 
-
 ## 🛠️ Supported Versions
+
 This API targets **.NET 8.0** and higher
 
 ## 🚧 Current Implemented Features

@@ -1,11 +1,5 @@
-﻿using RobloxCloudApi.APIRequests.Badges;
-using RobloxCloudApi.APIRequests.LuauExecution;
-using RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
+﻿using RobloxCloudApi.APIRequests.UniverseData.PlacesApi;
 using RobloxCloudApi.APIRequests.UniverseData.UniverseApi;
-using RobloxCloudApi.APITypes;
-using RobloxCloudApi.APITypes.Operations;
-using RobloxCloudApi.APITypes.RobloxGeneralTypes;
-using RobloxCloudApi.APITypes.RobloxObjects.Badges;
 using RobloxCloudApi.APITypes.RobloxObjects.Universe;
 using RobloxCloudApi.APITypes.TypeBases;
 using RobloxCloudApi.ErrorHandling.Exceptions;
@@ -16,18 +10,19 @@ namespace RobloxCloudApi;
 public class UniverseApi : RobloxClientMethodsBase
 {
     public UniverseApi(IRobloxApiClient client) : base(client)
-    { }
-    
-    
+    {
+    }
+
+
     /// <summary>
-    /// Get a list of places in a universe.
+    ///     Get a list of places in a universe.
     /// </summary>
     /// <param name="universeId">A Roblox Universe ID</param>
     /// <param name="isUniverseCreation">Is a universe being created</param>
     /// <param name="maxPageSize">Maximum size of page list</param>
     /// <param name="cursor">Cursor to next page  of places list</param>
     /// <param name="sortOrder">Sort order of list of places</param>
-    /// <returns>A instance of <see cref="PlaceInfoList"/></returns>
+    /// <returns>A instance of <see cref="PlaceInfoList" /></returns>
     public async Task<OldListResponseBase<PlaceInfo>> GetUniversePlaces(
         long universeId,
         bool? isUniverseCreation = false,
@@ -45,32 +40,32 @@ public class UniverseApi : RobloxClientMethodsBase
         }))!;
     }
 
-    
+
     /// <summary>
-    /// Get a universe
+    ///     Get a universe
     /// </summary>
     /// <param name="universeId">A Roblox Universe ID</param>
     /// <returns>A instance of <see cref="RobloxUniverse" /></returns>
-    public async Task<RobloxUniverse> GetUniverse( long universeId)
+    public async Task<RobloxUniverse> GetUniverse(long universeId)
     {
         return (await _client.ThrowIfNull().SendRequest(
-            new GetUniverseRequest()
+            new GetUniverseRequest
             {
                 UniverseId = universeId
             }))!;
     }
-    
-    
+
+
     /// <summary>
-    /// Publishes a message to a universe
+    ///     Publishes a message to a universe
     /// </summary>
     /// <param name="universeId">A roblox universe id</param>
     /// <param name="message">A message to send</param>
     /// <param name="topic">Topic of the sent message</param>
-    public async Task PublishUniverseMessage( long universeId, string topic, string message)
+    public async Task PublishUniverseMessage(long universeId, string topic, string message)
     {
         await _client.ThrowIfNull().SendRequest(
-            new PublishUniverseMessageRequest()
+            new PublishUniverseMessageRequest
             {
                 UniverseId = universeId,
                 Message = message,
@@ -79,7 +74,7 @@ public class UniverseApi : RobloxClientMethodsBase
     }
 
     /// <summary>
-    /// Restarts the universe's servers
+    ///     Restarts the universe's servers
     /// </summary>
     /// <param name="universeId">The ID of the universe</param>
     /// <param name="placeIds">Optional array of place IDs</param>
@@ -98,7 +93,7 @@ public class UniverseApi : RobloxClientMethodsBase
             throw new RobloxApiException("bleedOffDurationMinutes must be provided when bleedOffServer is true");
 
         await _client.ThrowIfNull().SendRequest(
-            new RestartUniverseServersRequest()
+            new RestartUniverseServersRequest
             {
                 BleedOffDurationMinutes = bleedOffDurationMinutes,
                 BleedOffServers = bleedOffServer,
@@ -109,17 +104,17 @@ public class UniverseApi : RobloxClientMethodsBase
     }
 
     /// <summary>
-    /// Updates a universe
+    ///     Updates a universe
     /// </summary>
-    /// <param name="universe">An instance of <see cref="RobloxUniverse"/></param>
-    /// <returns>A updated instance of <see cref="RobloxUniverse"/></returns>
+    /// <param name="universe">An instance of <see cref="RobloxUniverse" /></param>
+    /// <returns>A updated instance of <see cref="RobloxUniverse" /></returns>
     /// <exception cref="RobloxApiException">Error that occures because of invalid API request</exception>
-    public async Task<RobloxUniverse> UpdateUniverse( RobloxUniverse universe)
+    public async Task<RobloxUniverse> UpdateUniverse(RobloxUniverse universe)
     {
         if (universe.UniverseId == 0)
             throw new RobloxApiException("Universe ID must be provided");
 
-        return (await _client.ThrowIfNull().SendRequest(new UpdateUniverseRequest()
+        return (await _client.ThrowIfNull().SendRequest(new UpdateUniverseRequest
         {
             UniverseId = universe.UniverseId,
             DisplayName = universe.DisplayName,
@@ -145,5 +140,4 @@ public class UniverseApi : RobloxClientMethodsBase
             TemplateRootPlace = universe.RootPlace
         }))!;
     }
-    
 }

@@ -7,21 +7,16 @@ namespace RobloxCloudApi.APIRequests.Badges;
 [ApiTokenAuth]
 internal class UpdateBadgeLocalizedNameRequest : RequestBase<string>
 {
-    [JsonIgnore]
-    public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
+    [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Post;
 
     [JsonIgnore]
     public override string RequestPath =>
         $"https://apis.roblox.com/legacy-game-internationalization/v1/badges/{BadgeId}/name/language-codes/{LanguageCode}";
-    
-    [JsonIgnore]
-    public long BadgeId { get; set; }
-    
-    [JsonIgnore]
-    public string? LanguageCode { get; set; }
-    
-    
-    [JsonPropertyName("name")]
-    public string? Name { get; set; }
-    
+
+    [JsonIgnore] public long BadgeId { get; set; }
+
+    [JsonIgnore] public string? LanguageCode { get; set; }
+
+
+    [JsonPropertyName("name")] public string? Name { get; set; }
 }

@@ -4,7 +4,6 @@ using RobloxCloudApi.Helpers.JsonConverters;
 
 namespace RobloxCloudApi.APITypes.RobloxObjects.Badges;
 
-
 public class RobloxBadge
 {
     [JsonPropertyName("id")] public long Id { get; set; }
@@ -32,12 +31,11 @@ public class RobloxBadge
     [JsonPropertyName("updated")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTime Updated { get; set; }
-    
-    [JsonPropertyName("statistics")]
-    public RobloxBadgeStatistics Statistics { get; set; }
-    
+
+    [JsonPropertyName("statistics")] public RobloxBadgeStatistics Statistics { get; set; }
+
     /// <summary>
-    /// CAUTION. Contains only the id, name, and rootPlaceId of the universe that the badge is awarded in. 
+    ///     CAUTION. Contains only the id, name, and rootPlaceId of the universe that the badge is awarded in.
     /// </summary>
     [JsonPropertyName("awardingUniverse")]
     public RobloxUniverse AwardingUniverse { get; set; }
@@ -47,10 +45,9 @@ public class RobloxBadgeStatistics
 {
     [JsonPropertyName("pastDayAwardedCount")]
     public long PastDayAwardedCount { get; set; }
-    
-    [JsonPropertyName("awardedCount")]
-    public long AwardedCount { get; set; }
-    
+
+    [JsonPropertyName("awardedCount")] public long AwardedCount { get; set; }
+
     [JsonPropertyName("winRatePercentage")]
     public double WinRatePercentage { get; set; }
 }

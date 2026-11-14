@@ -15,8 +15,7 @@ internal class UpdateRestrictionRequest : RequestBase<RestrictionData>
 
     [JsonIgnore] public long? UniverseId;
 
-    [JsonPropertyName("user")] 
-    [JsonConverter(typeof(UserApiPathConverter))]
+    [JsonPropertyName("user")] [JsonConverter(typeof(UserApiPathConverter))]
     public long? UserId;
 
     [JsonIgnore] public override HttpMethod HttpMethod { get; } = HttpMethod.Patch;

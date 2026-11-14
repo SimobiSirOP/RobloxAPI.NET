@@ -1,7 +1,9 @@
-﻿namespace RobloxCloudApi.APITypes.AccessTokens;
+﻿using System.Diagnostics.Contracts;
+
+namespace RobloxCloudApi.APITypes.AccessTokens;
 
 public interface IAccessToken
 {
-    [System.Diagnostics.Contracts.Pure]
+    [Pure]
     public HttpRequestMessage ApplyToRequest(HttpRequestMessage request);
 }

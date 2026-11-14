@@ -10,7 +10,7 @@ public class RestrictionData : ApiBaseData
 {
     [JsonPropertyName("gameJoinRestriction")]
     public GameJoinRestriction? GameJoinRestriction { get; set; }
-    
+
     [JsonPropertyName("user")]
     [JsonConverter(typeof(UserApiPathConverter))]
     public long UserId { get; set; }
@@ -18,14 +18,15 @@ public class RestrictionData : ApiBaseData
 
 public class RestrictionDataLog : GameJoinRestriction
 {
-    [JsonPropertyName("updateTime")] [JsonConverter(typeof(DateTimeIso8601Converter))]
+    [JsonPropertyName("updateTime")]
+    [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTime? UpdateTime { get; set; }
-    
-    [JsonPropertyName("createTime")] [JsonConverter(typeof(DateTimeIso8601Converter))]
+
+    [JsonPropertyName("createTime")]
+    [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTime? CreateTime { get; set; }
-    
-    [JsonPropertyName("moderator")]
-    public Moderator? Moderator { get; set; }
+
+    [JsonPropertyName("moderator")] public Moderator? Moderator { get; set; }
 }
 
 public class Moderator
@@ -33,20 +34,17 @@ public class Moderator
     [JsonPropertyName("robloxUser")]
     [JsonConverter(typeof(UserApiPathConverter))]
     public long UserId { get; set; }
-    
-    [JsonPropertyName("gameServerScript")] 
-    public object? GameServerScript { get; set; }
+
+    [JsonPropertyName("gameServerScript")] public object? GameServerScript { get; set; }
 }
 
 public class GameJoinRestriction
 {
-    [JsonPropertyName("active")] 
-    public bool? Active { get; set; }
+    [JsonPropertyName("active")] public bool? Active { get; set; }
 
-    [JsonPropertyName("displayReason")] 
-    public string? DisplayReason { get; set; }
+    [JsonPropertyName("displayReason")] public string? DisplayReason { get; set; }
 
-    [JsonPropertyName("duration")] 
+    [JsonPropertyName("duration")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public RobloxDuration? Duration { get; set; }
 
@@ -58,10 +56,9 @@ public class GameJoinRestriction
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     public bool? Inherited { get; set; }
 
-    [JsonPropertyName("privateReason")] 
-    public string? PrivateReason { get; set; }
+    [JsonPropertyName("privateReason")] public string? PrivateReason { get; set; }
 
-    [JsonPropertyName("startTime")] 
+    [JsonPropertyName("startTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTime? StartTime { get; set; }
 }

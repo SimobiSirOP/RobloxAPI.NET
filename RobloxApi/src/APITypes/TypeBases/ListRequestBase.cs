@@ -14,6 +14,6 @@ internal abstract class ListRequestBase<T> : RequestBase<T>
     [QueryParameter("pageToken", true)] public string? PageToken { get; set; }
 
     [QueryParameter("showDeleted")] public bool? ShowDeleted { get; set; }
-    
+
     [QueryParameter("filter", true)] public string? Filter { get; set; }
 }

@@ -11,12 +11,12 @@ internal class ListOrderedDataStoreEntriesRequest : ListRequestBase<OrderedDataS
 
     [JsonPropertyName("path")]
     public override string RequestPath =>
-                $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}/ordered-data-stores/{OrderedDataStoreId}/scopes/{ScopeId}/entries";
+        $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}/ordered-data-stores/{OrderedDataStoreId}/scopes/{ScopeId}/entries";
 
 
     [JsonIgnore] public long UniverseId { get; set; }
 
     [JsonIgnore] public string OrderedDataStoreId { get; set; } = "";
 
-    [JsonIgnore] public string ScopeId { get; set; }  = "";
+    [JsonIgnore] public string ScopeId { get; set; } = "";
 }

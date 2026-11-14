@@ -1,6 +1,5 @@
 ﻿using System.Text.Json.Serialization;
 using RobloxCloudApi.APIRequests.Abstractions;
-using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.RobloxObjects.DataStoreTypes;
 using RobloxCloudApi.APITypes.TypeBases;
 
@@ -13,7 +12,7 @@ internal class UpdateOrderedDataStoreEntryRequest : RequestBase<OrderedDataStore
 
     [JsonPropertyName("path")]
     public override string RequestPath =>
-                $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}/ordered-data-stores/{OrderedDataStoreId}/scopes/{ScopeId}/entries/{EntryId}";
+        $"https://apis.roblox.com/cloud/v2/universes/{UniverseId}/ordered-data-stores/{OrderedDataStoreId}/scopes/{ScopeId}/entries/{EntryId}";
 
 
     [JsonIgnore] public long UniverseId { get; set; }
@@ -22,12 +21,9 @@ internal class UpdateOrderedDataStoreEntryRequest : RequestBase<OrderedDataStore
 
     [JsonIgnore] public string? EntryId { get; set; }
 
-    [JsonIgnore] public string ScopeId { get; set; }  = "";
-    
+    [JsonIgnore] public string ScopeId { get; set; } = "";
+
     [JsonPropertyName("value")] public long Value { get; set; }
 
     [JsonPropertyName("allowMissing")] public bool AllowMissing { get; set; } = true;
-
-
-
 }

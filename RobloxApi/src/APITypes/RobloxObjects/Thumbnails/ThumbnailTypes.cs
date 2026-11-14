@@ -15,7 +15,6 @@ public enum RobloxThumbnailFormat
 
 // 48, 50, 60, 75, 100, 110, 150, 180, 352, 420, 720. Default is 420. 
 
-
 public enum RobloxThumbnailReturnPolicy
 {
     PlaceHolder,
