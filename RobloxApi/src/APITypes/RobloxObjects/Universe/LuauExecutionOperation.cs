@@ -9,11 +9,11 @@ public class LuauExecutionOperation : BaseOperation
 {
     [JsonPropertyName("createTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? CreationTime { get; set; }
+    public DateTimeOffset? CreationTime { get; set; }
 
     [JsonPropertyName("updateTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? UpdateTime { get; set; }
+    public DateTimeOffset? UpdateTime { get; set; }
 
     [JsonPropertyName("user")] public long? UserId { get; set; }
 

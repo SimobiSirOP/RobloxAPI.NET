@@ -25,11 +25,11 @@ public class RobloxUniverse
 
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     [JsonPropertyName("createTime")]
-    public DateTime? CreationTime { get; set; }
+    public DateTimeOffset? CreationTime { get; set; }
 
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     [JsonPropertyName("updateTime")]
-    public DateTime? UpdateTime { get; set; }
+    public DateTimeOffset? UpdateTime { get; set; }
 
     [JsonPropertyName("displayName")] public string? DisplayName { get; set; }
 

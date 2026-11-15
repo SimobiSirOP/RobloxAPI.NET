@@ -6,7 +6,7 @@ namespace RobloxCloudApi.APITypes.RobloxGeneralTypes;
 [JsonConverter(typeof(RobloxDurationConverter))]
 public struct RobloxDuration
 {
-    private static long MaximumDuration
+    public static long MaximumDuration
     {
         get
         {
@@ -57,18 +57,7 @@ public struct RobloxDuration
         return double.Parse(duration.Duration.Substring(0,
             duration.Duration.Length - 1));
     }
-
-    // To long and from
-    public static implicit operator RobloxDuration(long degrees)
-    {
-        return new RobloxDuration(degrees);
-    }
-
-    public static implicit operator long(RobloxDuration duration)
-    {
-        return long.Parse(duration.Duration.Substring(0,
-            duration.Duration.Length - 1));
-    }
+    
 
     // to string and from
     public static implicit operator string(RobloxDuration duration)

@@ -17,7 +17,7 @@ public class ApiKeyInfo
 
     [JsonPropertyName("expirationTimeUtc")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? ExpirationTimeUtc { get; set; }
+    public DateTimeOffset? ExpirationTimeUtc { get; set; }
 }
 
 public class ApiKeyScopeInfo

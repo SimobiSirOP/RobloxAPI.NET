@@ -2,6 +2,7 @@
 using RobloxCloudApi.APIRequests.UsersApi.Restrictions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
+using RobloxCloudApi.APITypes.RobloxGeneralTypes;
 using RobloxCloudApi.APITypes.RobloxObjects.Thumbnails;
 using RobloxCloudApi.APITypes.RobloxObjects.Users;
 using RobloxCloudApi.APITypes.TypeBases;
@@ -166,17 +167,15 @@ public class UsersApi : RobloxClientMethodsBase
         long userId,
         long universeId,
         bool active,
-        DateTime startTime,
-        string? duration,
+        RobloxDuration? duration,
         string displayReason,
         string privateReason,
-        bool? excludeAlts = false,
-        bool? inherited = true)
+        bool excludeAlts = false,
+        bool inherited = true)
     {
         var restriction = new GameJoinRestriction
         {
             Active = active,
-            StartTime = startTime,
             Duration = duration,
             DisplayReason = displayReason,
             PrivateReason = privateReason,
@@ -204,13 +203,12 @@ public class UsersApi : RobloxClientMethodsBase
     public async Task<RestrictionData> BanUserFromUniverse(
         long userId,
         long universeId,
-        long? duration = null,
+        RobloxDuration? duration,
         string displayReason = "You have been banned!",
         string? privateReason = null,
-        bool? excludeAlts = false)
+        bool excludeAlts = false)
     {
-        return await SetUserRestrictionsInUniverse(userId, universeId, true, DateTime.UtcNow,
-            duration != null ? duration + "s" : null,
+        return await SetUserRestrictionsInUniverse(userId, universeId, true, duration,
             displayReason, privateReason ?? displayReason, excludeAlts);
     }
 
@@ -224,7 +222,7 @@ public class UsersApi : RobloxClientMethodsBase
         long userId,
         long universeId)
     {
-        return await SetUserRestrictionsInUniverse(userId, universeId, false, DateTime.UtcNow, null, string.Empty,
-            string.Empty, null);
+        return await SetUserRestrictionsInUniverse(userId, universeId, false, null, null,
+            string.Empty);
     }
 }

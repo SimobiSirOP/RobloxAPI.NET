@@ -20,11 +20,11 @@ public class RestrictionDataLog : GameJoinRestriction
 {
     [JsonPropertyName("updateTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? UpdateTime { get; set; }
+    public DateTimeOffset? UpdateTime { get; set; }
 
     [JsonPropertyName("createTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? CreateTime { get; set; }
+    public DateTimeOffset? CreateTime { get; set; }
 
     [JsonPropertyName("moderator")] public Moderator? Moderator { get; set; }
 }
@@ -40,7 +40,7 @@ public class Moderator
 
 public class GameJoinRestriction
 {
-    [JsonPropertyName("active")] public bool? Active { get; set; }
+    [JsonPropertyName("active")] public bool Active { get; set; }
 
     [JsonPropertyName("displayReason")] public string? DisplayReason { get; set; }
 
@@ -60,5 +60,5 @@ public class GameJoinRestriction
 
     [JsonPropertyName("startTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? StartTime { get; set; }
+    public DateTimeOffset? StartTime { get; set; }
 }
