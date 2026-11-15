@@ -22,11 +22,13 @@ public class RobloxApiClient : IRobloxApiClient
                       new HttpClient(new SocketsHttpHandler
                           { PooledConnectionIdleTimeout = TimeSpan.FromMinutes(1) });
 
+        // Groups of objects
         DataStores = new DataStoresApi(this);
         Users = new UsersApi(this);
         Universe = new UniverseApi(this);
         LuauExecution = new LuauExecutionApi(this);
         Badges = new BadgesApi(this);
+        Thumbnails = new ThumbnailApi(this);
     }
 
     private RobloxApiClientSettings _robloxApiClientSettings { get; set; }
