@@ -16,6 +16,7 @@ public class DataStoreTest
     
     [Test]
     [Order(0)]
+    [NonParallelizable]
     public async Task CreateNewDataStore()
     {
         await Globals.Client.DataStores.CreateDataStore(Globals.TestUniverseId, _dataStoreName); // Creation
@@ -30,6 +31,7 @@ public class DataStoreTest
     
     [Test]
     [Order(1)]
+    [NonParallelizable]
     public async Task AddNewValueToDataStore()
     {
         const string dataStoreValue = "TestValue";
@@ -45,6 +47,7 @@ public class DataStoreTest
     
     [Test]
     [Order(2)]
+    [NonParallelizable]
     public async Task UpdateValueDataStore()
     {
         const int dataStoreValue = 0;
@@ -60,6 +63,7 @@ public class DataStoreTest
     
     [Test]
     [Order(3)]
+    [NonParallelizable]
     public async Task IncrementDataStore()
     {
         var result = await Globals.Client.DataStores.IncrementDataStoreEntry(
@@ -74,6 +78,7 @@ public class DataStoreTest
     
     [Test]
     [Order(4)]
+    [NonParallelizable]
     public async Task DeleteDataStoreEntry()
     {
 
@@ -86,6 +91,7 @@ public class DataStoreTest
     
     [Test]
     [Order(5)]
+    [NonParallelizable]
     public async Task DeleteDataStore()
     {
         var result = await Globals.Client.DataStores.DeleteDataStore(Globals.TestUniverseId, _dataStoreName);

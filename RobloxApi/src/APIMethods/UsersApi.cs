@@ -1,4 +1,5 @@
-﻿using RobloxCloudApi.APIRequests.UsersApi;
+﻿using JetBrains.Annotations;
+using RobloxCloudApi.APIRequests.UsersApi;
 using RobloxCloudApi.APIRequests.UsersApi.Restrictions;
 using RobloxCloudApi.APITypes;
 using RobloxCloudApi.APITypes.Operations;
@@ -10,6 +11,7 @@ using RobloxCloudApi.Helpers;
 
 namespace RobloxCloudApi;
 
+[PublicAPI]
 public class UsersApi : RobloxClientMethodsBase
 {
     public UsersApi(IRobloxApiClient client) : base(client)
@@ -131,6 +133,72 @@ public class UsersApi : RobloxClientMethodsBase
         }))!;
         return result;
     }
+    
+    /// <inheritdoc cref="ListRestrictedUsersInUniverse"/>
+    public async Task<RestrictionList> ListUserRestrictions(long universeId,
+        int maxPageSize = 10,
+        string? pageToken = null!)
+    {
+        return await ListRestrictedUsersInUniverse(universeId, maxPageSize, pageToken);
+    }
+
+    /// <summary>
+    /// Use this method to get logs of restrictions in the universe
+    /// </summary>
+    /// <param name="universeId">A corresponding universe id</param>
+    /// <param name="maxPageSize">Maximum number of results to return</param>
+    /// <param name="pageToken">A token to specify where to start paginating</param>
+    /// <param name="filter">A filter to apply to the results. Supported values are: user, place.
+    /// Supported operations: ==, &&
+    /// Example: user == 'users/123' && place == 'places/456'</param>
+    /// <returns>A list of restriction logs</returns>
+    public async Task<RestrictionLogList> ListRestrictionLogs(long universeId,
+        int maxPageSize = 10,
+        string? pageToken = null,
+        string? filter = null)
+    {
+        return (await _client.ThrowIfNull().SendRequest(new ListUserRestrictionLogsRequest()
+        {
+            Filter = filter,
+            MaxPageSize = maxPageSize,
+            UniverseId = universeId,
+            PageToken = pageToken   
+        }))!;
+    }
+    
+    /// <summary>
+    /// Use this method to get restriction logs by user
+    /// </summary>
+    /// <param name="userId">A corresponding user id to filter by</param>
+    /// <param name="universeId">A corresponding universe id</param>
+    /// <param name="maxPageSize">Maximum number of results to return</param>
+    /// <param name="pageToken">A token to specify where to start paginating</param>
+    /// <returns>A list of restriction logs</returns>
+    public async Task<RestrictionLogList> ListRestrictionLogsByUser(long universeId,
+        long userId,
+        int maxPageSize = 10,
+        string? pageToken = null)
+    {
+        var filter = $"user == 'users/{userId}'";
+        return await ListRestrictionLogs(universeId, maxPageSize, pageToken, filter);
+    }
+    
+    /// <summary>
+    /// Use this method to get restriction logs by place
+    /// </summary>
+    /// <param name="placeId">A corresponding place id to filter by</param>
+    /// <param name="universeId">A corresponding universe id</param>
+    /// <param name="maxPageSize">Maximum number of results to return</param>
+    /// <param name="pageToken">A token to specify where to start paginating</param>
+    /// <returns>A list of restriction logs</returns>
+    public async Task<RestrictionLogList> ListRestrictionLogsByPlace(long universeId,
+        long placeId,
+        int maxPageSize = 10,
+        string? pageToken = null)
+    {
+        var filter = $"place == 'places/{placeId}'";
+        return await ListRestrictionLogs(universeId, maxPageSize, pageToken, filter);
+    }
 
     /// <summary>
     ///     Use this method to get specific player restrictions
@@ -156,7 +224,6 @@ public class UsersApi : RobloxClientMethodsBase
     /// <param name="userId">A roblox player ID</param>
     /// <param name="universeId">A roblox universe ID</param>
     /// <param name="active">Is restriction active</param>
-    /// <param name="startTime">Start time of a restriction</param>
     /// <param name="duration">Duration of a restriction</param>
     /// <param name="displayReason">Public reason of a restriction</param>
     /// <param name="privateReason">Reason that only developers can see</param>
@@ -168,8 +235,8 @@ public class UsersApi : RobloxClientMethodsBase
         long universeId,
         bool active,
         RobloxDuration? duration,
-        string displayReason,
-        string privateReason,
+        string? displayReason,
+        string? privateReason,
         bool excludeAlts = false,
         bool inherited = true)
     {
@@ -204,7 +271,7 @@ public class UsersApi : RobloxClientMethodsBase
         long userId,
         long universeId,
         RobloxDuration? duration,
-        string displayReason = "You have been banned!",
+        string? displayReason = "You have been banned!",
         string? privateReason = null,
         bool excludeAlts = false)
     {
@@ -217,12 +284,18 @@ public class UsersApi : RobloxClientMethodsBase
     /// </summary>
     /// <param name="userId">A Roblox user ID</param>
     /// <param name="universeId">A Roblox universe ID</param>
+    /// <param name="displayReason">An optional display reason of unban</param>
+    /// <param name="privateReason">A reason only for developers to see</param>
     /// <returns>An Instance of <see cref="RestrictionData" /></returns>
     public async Task<RestrictionData> UnbanUserFromUniverse(
         long userId,
-        long universeId)
+        long universeId,
+        string? displayReason = null,
+        string? privateReason = null)
     {
-        return await SetUserRestrictionsInUniverse(userId, universeId, false, null, null,
-            string.Empty);
+        return await SetUserRestrictionsInUniverse(userId, universeId, false, null, displayReason,
+            privateReason ?? displayReason);
     }
+    
+    
 }

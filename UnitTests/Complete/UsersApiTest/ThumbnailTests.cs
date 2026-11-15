@@ -6,7 +6,7 @@ namespace UnitTests.Complete.UsersApiTest;
 
 [TestFixture]
 [Parallelizable(ParallelScope.All)]
-[Category("Users")]
+[Category("Complete")]
 public class ThumbnailTests
 {
     private readonly string _testUserName = Globals.TestUserName; // This roblox dev user, won't be changed (you can't ban Roblox, so had to use myself)

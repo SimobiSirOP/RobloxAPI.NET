@@ -18,6 +18,12 @@ public class RestrictionData : ApiBaseData
 
 public class RestrictionDataLog : GameJoinRestriction
 {
+    
+    [JsonPropertyName("user")]
+    [JsonConverter(typeof(UserApiPathConverter))]
+    public long UserId { get; set; }
+
+    
     [JsonPropertyName("updateTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     public DateTimeOffset? UpdateTime { get; set; }
@@ -27,6 +33,8 @@ public class RestrictionDataLog : GameJoinRestriction
     public DateTimeOffset? CreateTime { get; set; }
 
     [JsonPropertyName("moderator")] public Moderator? Moderator { get; set; }
+    
+    [JsonPropertyName("RestrictionType")] public GameJoinRestriction? InnerRestriction { get; set; }
 }
 
 public class Moderator
