@@ -4,10 +4,10 @@ namespace UnitTests.Complete.UniverseRequestsTesting;
 
 [Category("Complete")]
 [TestFixture]
+[Parallelizable(ParallelScope.All)]
 public class UniverseManipulationTest
 {
     [Test]
-    [Order(1)]
     public async Task TestUniverseGetAndUpdate()
     {
         var Universe = await Globals.Client.Universe.GetUniverse(Globals.TestUniverseId);
@@ -25,7 +25,6 @@ public class UniverseManipulationTest
     }
     
     [Test]
-    [Order(2)]
     public async Task TestUniverseMessage()
     {
         var message = "Test Message";
@@ -35,7 +34,6 @@ public class UniverseManipulationTest
     }
 
     [Test]
-    [Order(3)]
     public async Task TestUniverseServersRestart()
     {
         await Globals.Client.Universe.RestartUniverseServers(Globals.TestUniverseId);

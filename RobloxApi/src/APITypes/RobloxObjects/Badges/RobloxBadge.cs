@@ -26,11 +26,11 @@ public class RobloxBadge
 
     [JsonPropertyName("created")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime Created { get; set; }
+    public DateTimeOffset Created { get; set; }
 
     [JsonPropertyName("updated")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime Updated { get; set; }
+    public DateTimeOffset Updated { get; set; }
 
     [JsonPropertyName("statistics")] public RobloxBadgeStatistics Statistics { get; set; }
 

@@ -7,7 +7,7 @@ public class RobloxFullUser : RobloxUser
 {
     [JsonConverter(typeof(DateTimeIso8601Converter))]
     [JsonPropertyName("createTime")]
-    public DateTime? CreationTime { get; set; }
+    public DateTimeOffset? CreationTime { get; set; }
 
     [JsonPropertyName("about")] public string? About { get; set; }
 

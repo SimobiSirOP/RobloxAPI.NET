@@ -11,11 +11,11 @@ public class DataStoreInfo : ApiBaseData
 
     [JsonPropertyName("createTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? CreationTime { get; set; }
+    public DateTimeOffset? CreationTime { get; set; }
 
     [JsonPropertyName("expireTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? ExpirationTime { get; set; }
+    public DateTimeOffset? ExpirationTime { get; set; }
 
     [JsonPropertyName("id")] public string? Id { get; set; }
 }

@@ -23,5 +23,5 @@ public class SnapshotResult
 
     [JsonPropertyName("latestSnapshotTaken")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? LatestSnapshotTaken { get; set; }
+    public DateTimeOffset? LatestSnapshotTaken { get; set; }
 }

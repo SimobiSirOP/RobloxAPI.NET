@@ -7,6 +7,8 @@ public static class Globals
 {
     public static IRobloxApiClient Client { get; set; } = null!;
     public static long TestUniverseId { get; set; }
+    
+    public static string TestUserName { get; set; } = "SimobiSirOP";
 }
 
 [SetUpFixture]

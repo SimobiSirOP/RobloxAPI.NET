@@ -7,6 +7,7 @@ namespace UnitTests.Complete.DataStoresTest;
 
 [Category("Complete")]
 [TestFixture]
+[NonParallelizable]
 public class DataStoreTest
 {
     private readonly string _dataStoreName = "TestDataStore";

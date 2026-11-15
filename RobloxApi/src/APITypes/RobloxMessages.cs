@@ -19,7 +19,7 @@ public class RobloxStructuredMessage : RobloxMessage
 {
     [JsonPropertyName("createTime")]
     [JsonConverter(typeof(DateTimeIso8601Converter))]
-    public DateTime? CreateTime { get; set; }
+    public DateTimeOffset? CreateTime { get; set; }
 
     [JsonPropertyName("messageType")] public string? MessageType { get; set; }
 }
